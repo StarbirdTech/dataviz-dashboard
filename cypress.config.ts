@@ -1,8 +1,8 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from "cypress";
 
 export default defineConfig({
-  projectId: 'cjfnfc',
+  projectId: "cjfnfc",
   e2e: {
-    baseUrl: 'http://localhost:3000'
-  }
-})
+    baseUrl: "http://localhost:3000",
+  },
+});
