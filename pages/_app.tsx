@@ -1,8 +1,17 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import NavBar from "../components/NavBar";
+import Grid from "../components/Grid";
 
-export default MyApp
+const App = () => {
+  return (
+    <div className="flex flex-col h-screen">
+      <NavBar></NavBar>
+      <div className="flex flex-grow">
+        <Grid></Grid>
+      </div>
+    </div>
+  );
+};
+
+export default App;
