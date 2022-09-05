@@ -2,13 +2,18 @@ import GridElementData from "./gridElements.json";
 
 const Grid = () => (
   <div className="grid grid-cols-3 grid-rows-3 m-8 gap-8 w-full">
-    <GridComponent
-      content={"Test"}
-      colStart={1}
-      rowStart={GridElementData[0].rowStart}
-      colSpan={1}
-      rowSpan={1}
-    ></GridComponent>
+    {GridElementData.map((data, key) => {
+      return (
+        <GridComponent
+          content={"Test"}
+          colStart={data.colStart}
+          rowStart={data.rowStart}
+          colSpan={data.colSpan}
+          rowSpan={data.rowSpan}
+          key={key}
+        ></GridComponent>
+      );
+    })}
   </div>
 );
 
