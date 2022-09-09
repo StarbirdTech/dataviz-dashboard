@@ -1,9 +1,23 @@
 [
   {
     "content": "Test",
-    "colStart": 1,
+    "colStart": 2,
     "rowStart": 1,
     "colSpan": 1,
+    "rowSpan": 1
+  },
+  {
+    "content": "Test",
+    "colStart": 3,
+    "rowStart": 3,
+    "colSpan": 1,
+    "rowSpan": 1
+  },
+  {
+    "content": "Test",
+    "colStart": 1,
+    "rowStart": 2,
+    "colSpan": 2,
     "rowSpan": 1
   }
 ]

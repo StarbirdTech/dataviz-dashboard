@@ -1,6 +1,7 @@
 import GridElementData from "./gridElements.json";
 
 const Grid = () => (
+  //! Update tailwind safelist if change cols or rows
   <div className="grid grid-cols-3 grid-rows-3 m-8 gap-8 w-full">
     {GridElementData.map((data, key) => {
       return (
@@ -33,6 +34,7 @@ const GridComponent = ({
   rowSpan,
 }: GridComponentProps) => (
   <div
+    //! Consider using vanilla css to avoid tailwind safelist
     className={`w-full h-full bg-black rounded-lg text-white col-start-${colStart} row-start-${rowStart} col-span-${colSpan} row-span-${rowSpan}`}
   >
     {content}
