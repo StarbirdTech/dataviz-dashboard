@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply absolute rounded-full bg-slate-400 hover:bg-slate-500 active:bg-slate-600 transition-all duration-200 scale-0 group-hover:scale-100 hover:!scale-125 active:!scale-110;
+  }
+
+  .button-left {
+    @apply -left-4 top-[calc(50%-1rem)];
+  }
+
+  .button-right {
+    @apply -right-4 top-[calc(50%-1rem)];
+  }
+
+  .button-up {
+    @apply -top-4 left-[calc(50%-1rem)];
+  }
+
+  .button-down {
+    @apply -bottom-4 left-[calc(50%-1rem)];
+  }
+}
