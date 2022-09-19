@@ -4,7 +4,7 @@
 
 @layer components {
   .button {
-    @apply absolute rounded-full bg-slate-400 hover:bg-slate-500 active:bg-slate-600 transition-all duration-200 scale-0 group-hover:scale-100 hover:!scale-125 active:!scale-110;
+    @apply absolute bg-slate-400 hover:bg-slate-500 active:bg-slate-600 scale-0 group-hover:scale-100;
   }
 
   .button-left {
@@ -21,5 +21,13 @@
 
   .button-down {
     @apply -bottom-4 left-[calc(50%-1rem)];
+  }
+
+  .horizontal-center {
+    @apply left-[calc(50%-1rem)];
+  }
+
+  .vertical-center {
+    @apply top-[calc(50%-1rem)];
   }
 }
