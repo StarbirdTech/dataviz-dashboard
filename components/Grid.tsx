@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown, MdOutlineAdd, MdOutlineMinimize } from 'react-icons/md';
-
+/*
 import BarChart from "../components/BarChart";
 
 const graphData = [
@@ -65,7 +65,7 @@ const graphData = [
 
   { year: 2017, efficiency: 39.4, sales: 6081000 },
 
-]
+]*/
 
 const Grid = () => (
   //! Update tailwind safelist if change cols or rows
@@ -76,8 +76,8 @@ const Grid = () => (
 
 const GridComponent = () => {
   // TODO make custom hook
-  const [col, setCol] = useState(1);
-  const [row, setRow] = useState(1);
+  const [col, setCol] = useState(2);
+  const [row, setRow] = useState(2);
   const [width, setWidth] = useState(1)
   const [height, setHeight] = useState(1)
 
@@ -91,75 +91,82 @@ const GridComponent = () => {
       //! Consider using vanilla css to avoid tailwind safelist
       className={`relative group w-full h-full bg-black rounded-lg text-white col-start-${col} row-start-${row} col-span-${width} row-span-${height}`}
     >
-      <BarChart data={graphData} />
-      {col > 1 && <button
-        className="absolute vertical-center horizontal-center"
-        onClick={() => setCol(clamp(col - 1, 3 - (width - 1)))}>
-        <MdOutlineKeyboardArrowLeft className="w-8 h-8" />
-      </button>}
-      {col < 3 - (width - 1) && <button
-        className="absolute vertical-center horizontal-center"
-        onClick={() => setCol(clamp(col + 1, 3 - (width - 1)))}
-      >
-        <MdOutlineKeyboardArrowRight className="w-8 h-8" />
-      </button>}
-      {row > 1 && <button
-        className="absolute vertical-center horizontal-center"
-        onClick={() => setRow(clamp(row - 1, 3 - (height - 1)))}
-      >
-        <MdOutlineKeyboardArrowUp className="w-8 h-8" />
-      </button>}
-      {row < 3 - (height - 1) && <button
-        className="absolute vertical-center horizontal-center"
-        onClick={() => setRow(clamp(row + 1, 3 - (height - 1)))}
-      >
-        <MdOutlineKeyboardArrowDown className="w-8 h-8" />
-      </button>}
+      <div className="w-24 h-24 left-[calc(50%-3rem)] top-[calc(50%-3rem)] absolute horizontal-center vertical-center grid grid-cols-3 grid-rows-3 m-1">
+        <button
+          className="button col-start-1 row-start-2"
+          onClick={() => setCol(clamp(col - 1, 3 - (width - 1)))}>
+          <MdOutlineKeyboardArrowLeft className="w-8 h-8" />
+        </button>
+        <button
+          className="button col-start-3 row-start-2"
+          onClick={() => setCol(clamp(col + 1, 3 - (width - 1)))}
+        >
+          <MdOutlineKeyboardArrowRight className="w-8 h-8" />
+        </button>
+        <button
+          className="button col-start-2 row-start-1"
+          onClick={() => setRow(clamp(row - 1, 3 - (height - 1)))}
+        >
+          <MdOutlineKeyboardArrowUp className="w-8 h-8" />
+        </button>
+        <button
+          className="button col-start-2 row-start-3"
+          onClick={() => setRow(clamp(row + 1, 3 - (height - 1)))}
+        >
+          <MdOutlineKeyboardArrowDown className="w-8 h-8" />
+        </button>
+      </div>
 
-      {col > 1 && <button
+      {/* Left */}
+      {width > 1 && <button
         className="button left-0 vertical-center rounded-r-full"
-        onClick={() => setWidth(clamp(col - 1, 3))}>
-        <MdOutlineMinimize className="w-8 h-8" />
+        onClick={() => { setWidth(clamp(width - 1, 3)); setCol(clamp(col + 1, 3)) }}>
+        <MdOutlineMinimize className="w-8 h-8 -translate-y-1/3" />
       </button>}
-      {col < 3 - (width - 1) && <button
-        className="button right-0 vertical-center rounded-l-full"
-        onClick={() => setWidth(clamp(col + 1, 3))}
-      >
-        <MdOutlineMinimize className="w-8 h-8" />
-      </button>}
-      {row > 1 && <button
-        className="button top-0 horizontal-center rounded-b-full"
-        onClick={() => setHeight(clamp(row - 1, 3))}
-      >
-        <MdOutlineMinimize className="w-8 h-8" />
-      </button>}
-      {row < 3 - (height - 1) && <button
-        className="button bottom-0 horizontal-center rounded-t-full"
-        onClick={() => setHeight(clamp(row + 1, 3))}
-      >
-        <MdOutlineMinimize className="w-8 h-8" />
-      </button>}
-
       {col > 1 && <button
         className="button -left-8 vertical-center rounded-l-full"
-        onClick={() => setWidth(clamp(col - 1, 3))}>
+        onClick={() => { setWidth(clamp(width + 1, 3)); setCol(clamp(col - 1, 3)) }}>
         <MdOutlineAdd className="w-8 h-8" />
+      </button>}
+
+      {/* Right */}
+      {width > 1 && <button
+        className="button right-0 vertical-center rounded-l-full"
+        onClick={() => setWidth(clamp(width - 1, 3))}
+      >
+        <MdOutlineMinimize className="w-8 h-8 -translate-y-1/3" />
       </button>}
       {col < 3 - (width - 1) && <button
         className="button -right-8 vertical-center rounded-r-full"
-        onClick={() => setWidth(clamp(col + 1, 3))}
+        onClick={() => setWidth(clamp(width + 1, 3))}
       >
         <MdOutlineAdd className="w-8 h-8" />
+      </button>}
+
+      {/* Top */}
+      {height > 1 && <button
+        className="button top-0 horizontal-center rounded-b-full"
+        onClick={() => { setHeight(clamp(height - 1, 3)); setRow(clamp(row + 1, 3)) }}
+      >
+        <MdOutlineMinimize className="w-8 h-8 -translate-y-1/3" />
       </button>}
       {row > 1 && <button
         className="button -top-8 horizontal-center rounded-t-full"
-        onClick={() => setHeight(clamp(row - 1, 3))}
+        onClick={() => { setHeight(clamp(height + 1, 3)); setRow(clamp(row - 1, 3)) }}
       >
         <MdOutlineAdd className="w-8 h-8" />
       </button>}
+
+      {/* Bottom */}
+      {height > 1 && <button
+        className="button bottom-0 horizontal-center rounded-t-full"
+        onClick={() => setHeight(clamp(height - 1, 3))}
+      >
+        <MdOutlineMinimize className="w-8 h-8 -translate-y-1/3" />
+      </button>}
       {row < 3 - (height - 1) && <button
         className="button -bottom-8 horizontal-center rounded-b-full"
-        onClick={() => setHeight(clamp(row + 1, 3))}
+        onClick={() => setHeight(clamp(height + 1, 3))}
       >
         <MdOutlineAdd className="w-8 h-8" />
       </button>}
@@ -168,3 +175,5 @@ const GridComponent = () => {
 };
 
 export default Grid;
+
+// <BarChart data={graphData} />
