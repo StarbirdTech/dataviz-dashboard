@@ -7,22 +7,6 @@
     @apply absolute bg-slate-400 hover:bg-slate-500 active:bg-slate-600 scale-0 group-hover:scale-100;
   }
 
-  .button-left {
-    @apply -left-4 top-[calc(50%-1rem)];
-  }
-
-  .button-right {
-    @apply -right-4 top-[calc(50%-1rem)];
-  }
-
-  .button-up {
-    @apply -top-4 left-[calc(50%-1rem)];
-  }
-
-  .button-down {
-    @apply -bottom-4 left-[calc(50%-1rem)];
-  }
-
   .horizontal-center {
     @apply left-[calc(50%-1rem)];
   }

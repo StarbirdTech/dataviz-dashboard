@@ -6,7 +6,7 @@ import Grid from "../components/Grid";
 const App = () => {
   return (
     <div className="flex flex-col h-screen">
-      <NavBar></NavBar>
+      <NavBar />
       <div className="flex flex-grow">
         <Grid />
       </div>
