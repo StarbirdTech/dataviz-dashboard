@@ -2,11 +2,15 @@ import vercelLogo from "../public/vercel.svg";
 import starbird from "../public/hunter.jpg";
 import Image from "next/image";
 
+import DataTest from "./DataTest";
+
 const NavBar = () => {
   return (
     <div className="flex flex-row m-8">
       <Logo></Logo>
-      <div className="grow text-center">Custom Buttons</div>
+      <div className="grow text-center">
+        <DataTest />
+      </div>
       <Profile></Profile>
     </div>
   );
