@@ -1,7 +1,6 @@
 import vercelLogo from "../public/vercel.svg";
 import starbird from "../public/hunter.jpg";
 import Image from "next/image";
-
 import DataTest from "./DataTest";
 
 const NavBar = () => {

@@ -30,7 +30,7 @@ const GridComponent = () => {
   return (
     <div
       //! Consider using vanilla css to avoid tailwind safelist
-      className={`relative group w-full h-full bg-black rounded-lg text-white col-start-${col} row-start-${row} col-span-${width} row-span-${height}`}
+      className={`relative group w-full h-full bg-white rounded-lg text-white col-start-${col} row-start-${row} col-span-${width} row-span-${height}`}
     >
       <BarChart />
       <div className="absolute w-24 h-24 top-[calc(50%-3rem)] left-[calc(50%-3rem)] grid grid-cols-3 grid-rows-3">
